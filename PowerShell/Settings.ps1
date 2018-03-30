@@ -5,16 +5,14 @@ $DockerHost = 'waldocorevm'
 
 $DockerImage = 'microsoft/dynamics-nav:devpreview'
 
-$DEVServer = 'devsrv'
+$DEVServer = 'devpreview'
 $IPDEVServer = '172.21.31.8'
-$TESTServer = 'testsrv'
+$TESTServer = 'testpreview'
 $IPTESTServer = '172.21.31.9'
 $TESTDatabaseServer = "$TESTServer\SQLEXPRESS"
 $DatabaseName = 'CRONUS'
 #$LicenseFile = "https://www.dropbox.com/s/8r85nc2oq5r1mal/CRS%20NAV2018%20DEV%20%20License.flf?dl=1"
 $LicenseFile = 'C:\ProgramData\navcontainerhelper\NAV2018License.flf'
-$MemoryDEVServer = '3G'
-$MemoryTESTServer = '3G'
 
 #Credentials
 $username = 'waldo'
