@@ -1,0 +1,13 @@
+### Page web Service
+### SOAP
+GET http://devpreview:7047/NAV/WS/CRONUS%20USA%2C%20Inc./Page/workflowItems
+Authorization: Basic waldo waldo1234
+
+### ODATA
+GET http://devpreview:7048/NAV/OData/Company('CRONUS%20USA%2C%20Inc.')/workflowItems
+Authorization: Basic waldo waldo1234
+
+### ODATA V4
+GET http://devpreview:7048/NAV/ODataV4/Company('CRONUS%20USA%2C%20Inc.')/workflowItems
+Authorization: Basic waldo waldo1234
+

@@ -28,7 +28,7 @@
     "Snippet: Codeunit": {
         "prefix": "tcodeunit (Clean)",
         "body": [
-            "codeunit ${1:id} ${2:$TM_FILENAME}",
+            "codeunit ${1:id} \"${2:$TM_FILENAME_BASE}\"",
             "{",
             "\ttrigger OnRun();",
             "\tbegin",
