@@ -12,7 +12,7 @@ codeunit 50100 "Editing Hacks"{
         EditingHacksMeth: Codeunit "Editing Hacks Meth";
     begin
         EditingHacksMeth.EditingHacks();
-        MyPublisher;
+        MyPublisher();
     end;
 
     [IntegrationEvent(false,false)]

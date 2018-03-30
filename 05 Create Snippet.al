@@ -124,27 +124,27 @@ actions
             InFooterBar=true;
             trigger OnAction();
             begin
-                FinishAction;
+                FinishAction();
             end;
         }
     }
 }
 trigger OnInit();
 begin
-  LoadTopBanners;
+  LoadTopBanners();
 end;
 trigger OnOpenPage();
 var
     Cust : Record Customer;
 begin
-    INIT;
-    IF Cust.GET THEN BEGIN
+    INIT();
+    IF Cust.GET() THEN BEGIN
       TRANSFERFIELDS(Cust);
     END;
-    INSERT;
+    INSERT();
 
     Step := Step::Start;
-    EnableControls;
+    EnableControls();
 end;
 var
     MediaRepositoryStandard : Record 9400;
@@ -161,7 +161,7 @@ var
     NextActionEnabled : Boolean;
 local procedure EnableControls();
 begin
-  ResetControls;
+  ResetControls();
 
   CASE Step OF
     Step::Start:
@@ -177,21 +177,21 @@ local procedure StoreCust();
 var
     Cust : Record Customer;
 begin
-    IF NOT Cust.GET THEN BEGIN
-        Cust.INIT;
-        Cust.INSERT;
+    IF NOT Cust.GET() THEN BEGIN
+        Cust.INIT();
+        Cust.INSERT();
     END;
 
     Cust.TRANSFERFIELDS(Rec,FALSE);
     Cust.MODIFY(TRUE);
-    COMMIT;
+    COMMIT();
 end;
 
 
 local procedure FinishAction();
 begin
-  StoreCust;
-  CurrPage.CLOSE;
+  StoreCust();
+  CurrPage.CLOSE();
 end;
 
 local procedure NextStep(Backwards : Boolean);
@@ -201,7 +201,7 @@ begin
   ELSE
     Step := Step + 1;
 
-  EnableControls;
+  EnableControls();
 end;
 
 local procedure ShowStep1();
@@ -238,12 +238,12 @@ end;
 
 local procedure LoadTopBanners();
 begin
-  IF MediaRepositoryStandard.GET('AssistedSetup-NoText-400px.png',FORMAT(CURRENTCLIENTTYPE)) AND
-     MediaRepositoryDone.GET('AssistedSetupDone-NoText-400px.png',FORMAT(CURRENTCLIENTTYPE))
+  IF MediaRepositoryStandard.GET('AssistedSetup-NoText-400px.png',FORMAT(CURRENTCLIENTTYPE())) AND
+     MediaRepositoryDone.GET('AssistedSetupDone-NoText-400px.png',FORMAT(CURRENTCLIENTTYPE()))
   THEN
     IF MediaResourcesStandard.GET(MediaRepositoryStandard."Media Resources Ref") AND
        MediaResourcesDone.GET(MediaRepositoryDone."Media Resources Ref")
     THEN
-      TopBannerVisible := MediaResourcesDone."Media Reference".HASVALUE;
+      TopBannerVisible := MediaResourcesDone."Media Reference".HASVALUE();
 end;
 }
