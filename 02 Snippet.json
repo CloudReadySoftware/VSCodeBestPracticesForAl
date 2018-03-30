@@ -1,0 +1,49 @@
+{
+
+    "Snippet: Table": {
+        "prefix": "ttable (clean)",
+        "body": [
+            "table ${1:id} ${2:MyTable}",
+            "{",
+            "",
+            "\tfields",
+            "\t{",
+            "\t\tfield(1;${3:MyField};${4:Integer})",
+            "\t\t{",
+            "\t\t}",
+            "\t}",
+            "",
+            "\tkeys",
+            "\t{",
+            "\t\tkey(${5:PK};${3:MyField})",
+            "\t\t{",
+            "\t\t\tClustered = true;",
+            "\t\t}",
+            "\t}",
+            "",
+            "}"
+        ],
+        "description": "Snippet: Table"
+    },
+    "Snippet: Codeunit": {
+        "prefix": "tcodeunit (Clean)",
+        "body": [
+            "codeunit ${1:id} ${2:$TM_FILENAME}",
+            "{",
+            "\ttrigger OnRun();",
+            "\tbegin",
+            "\tend;",
+            "}"
+        ],
+        "description": "Snippet: Codeunit"
+    },
+    "Snippet: Repeat Loop": {
+        "prefix": "trepeatloop",
+        "body" : [
+            "if ${1:record}.${2|FindSet,Find('-'),FindFirst|} then",
+            "\trepeat",
+            "\t\t${3}",
+            "\tuntil cust.next < 1;"
+        ]
+    }
+}

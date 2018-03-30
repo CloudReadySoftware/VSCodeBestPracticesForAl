@@ -1,0 +1,21 @@
+{
+    "name": "waldo",
+    "description": "waldo's rules",
+    "rules": [
+        {
+            "id": "AA0005",
+            "action": "None",
+            "justification": "Done care about this!"
+        },
+        {
+            "id": "PTE0002",
+            "action": "None",
+            "justification": "License issues with 'PerTenantExtensionCop'"
+        },
+        {
+            "id": "PTE0004",
+            "action": "Warning",
+            "justification": "It should not be blocking while developing."
+        }
+    ]
+}
