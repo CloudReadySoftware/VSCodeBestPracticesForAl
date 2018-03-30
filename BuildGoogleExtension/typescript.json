@@ -1,0 +1,74 @@
+{
+/*
+	// Place your snippets for TypeScript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	"Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	}
+*/
+"Demo1_Dependencies": {
+	"prefix": "demo: dependencies",
+	"body": [
+		"\"dependencies\": {",
+		"\t\"opn\": \"^5.1.0\"",
+		"}"
+	]
+},
+
+"Demo2_RequireOpen":{
+	"prefix": "demo: requireOpen",
+	"body": "const open = require('opn');"
+},
+
+"Demo3_searchGoogle": {
+	"prefix": "demo: searchGoogle",
+	"body": [
+		"vscode.window.showInputBox({prompt: 'search string'}).then(searchString => ",
+		"  open('http://www.google.com/search?q='+searchString)",
+		");"
+	]
+},
+"Demo4_searchCurrentWordOnGoogle": {
+	"prefix": "demo: searchCurrentWordOnGoogle",
+	"body": [
+		"let disposable2 = vscode.commands.registerCommand('extension.searchCurrentWordOnGoogle', () => {",
+		"\topen('http://www.google.com/search?q='+getWord(vscode.window.activeTextEditor));",
+		"});",
+		"",
+		"context.subscriptions.push(disposable2);"
+	]
+},
+"Demo5_getWord" :{
+	"prefix": "demo: getWord",
+	"body": [
+		"function getWord(editor: vscode.TextEditor): String {",
+		"\tconst selection = editor.selection;",
+		"\tconst doc = editor.document;",
+		"\tif (selection.isEmpty) {",
+		"\t\tconst cursorWordRange = doc.getWordRangeAtPosition(selection.active);",
+		"\t",
+		"\t\tif (cursorWordRange) {",
+		"\t\t\tlet newSe = new vscode.Selection(cursorWordRange.start.line, cursorWordRange.start.character, cursorWordRange.end.line, cursorWordRange.end.character);",
+		"\t\t\teditor.selection = newSe;",
+		"\t\t\treturn editor.document.getText(editor.selection);",
+		"\t\t\t",
+		"\t\t} else {",
+		"\t\t\treturn '';",
+		"\t\t}",
+		"\t} else {",
+		"\t\treturn editor.document.getText(editor.selection);",
+		"\t}",
+		"}"
+	]
+	
+}
+
+}
