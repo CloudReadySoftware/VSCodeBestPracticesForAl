@@ -1,0 +1,22 @@
+{
+  "id": "b528ee70-8b63-4bd8-967c-402f9476b428",
+  "name": "VSCode Best Practices for Al",
+  "publisher": "Cloud Ready Software",
+  "brief": "",
+  "description": "",
+  "version": "1.0.0.3",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": ".\\images\\icon.png",
+  "capabilities": [],
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "11.0.0.0",
+  "application": "11.0.0.0",
+  "idRange": {
+    "from": 50100,
+    "to": 50149
+  }
+}
